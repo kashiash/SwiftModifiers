@@ -9,13 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     @ State private var pushNewView = false
+    @ State private var pushKeyboardView = false
+    @ State private var pushImportFileView = false
     var body: some View {
         NavigationStack{
             Button("Push View"){
                 pushNewView.toggle()
             }
             .navigationDestination(isPresented: $pushNewView){
-               Text("New View")
+               NavigationDestinationView()
+            }
+            Button("Hide Keyboard View"){
+                pushKeyboardView.toggle()
+            }
+            .navigationDestination(isPresented: $pushKeyboardView){
+               HideKeyboardExampleView()
+            }
+            Button("Import file View"){
+                pushImportFileView.toggle()
+            }
+            .navigationDestination(isPresented: $pushImportFileView){
+               ImportFileView()
             }
         }
     }

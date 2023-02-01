@@ -11,6 +11,9 @@
 		3FC1C814298B2ACB00B381F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1C813298B2ACB00B381F4 /* ContentView.swift */; };
 		3FC1C816298B2ACC00B381F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC1C815298B2ACC00B381F4 /* Assets.xcassets */; };
 		3FC1C81A298B2ACC00B381F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC1C819298B2ACC00B381F4 /* Preview Assets.xcassets */; };
+		3FC1C821298B2F7000B381F4 /* NavigationDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1C820298B2F7000B381F4 /* NavigationDestinationView.swift */; };
+		3FC1C823298B2FAA00B381F4 /* HideKeyboardExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1C822298B2FAA00B381F4 /* HideKeyboardExampleView.swift */; };
+		3FC1C825298B333800B381F4 /* ImportFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1C824298B333800B381F4 /* ImportFileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		3FC1C815298B2ACC00B381F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FC1C817298B2ACC00B381F4 /* SwiftModifiers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftModifiers.entitlements; sourceTree = "<group>"; };
 		3FC1C819298B2ACC00B381F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3FC1C820298B2F7000B381F4 /* NavigationDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestinationView.swift; sourceTree = "<group>"; };
+		3FC1C822298B2FAA00B381F4 /* HideKeyboardExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardExampleView.swift; sourceTree = "<group>"; };
+		3FC1C824298B333800B381F4 /* ImportFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,9 @@
 				3FC1C815298B2ACC00B381F4 /* Assets.xcassets */,
 				3FC1C817298B2ACC00B381F4 /* SwiftModifiers.entitlements */,
 				3FC1C818298B2ACC00B381F4 /* Preview Content */,
+				3FC1C820298B2F7000B381F4 /* NavigationDestinationView.swift */,
+				3FC1C822298B2FAA00B381F4 /* HideKeyboardExampleView.swift */,
+				3FC1C824298B333800B381F4 /* ImportFileView.swift */,
 			);
 			path = SwiftModifiers;
 			sourceTree = "<group>";
@@ -141,6 +150,9 @@
 			files = (
 				3FC1C814298B2ACB00B381F4 /* ContentView.swift in Sources */,
 				3FC1C812298B2ACB00B381F4 /* SwiftModifiersApp.swift in Sources */,
+				3FC1C823298B2FAA00B381F4 /* HideKeyboardExampleView.swift in Sources */,
+				3FC1C821298B2F7000B381F4 /* NavigationDestinationView.swift in Sources */,
+				3FC1C825298B333800B381F4 /* ImportFileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

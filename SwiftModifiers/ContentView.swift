@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ State private var pushNewView = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack{
+            Button("Push View"){
+                pushNewView.toggle()
+            }
+            .navigationDestination(isPresented: $pushNewView){
+               Text("New View")
+            }
         }
-        .padding()
     }
 }
 

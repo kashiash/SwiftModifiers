@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import QuickLook
 
 struct ImportFileView: View {
     @State private var pickFile: Bool = false
@@ -26,7 +27,7 @@ struct ImportFileView: View {
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
-        }
+        }.quickLookPreview($fileURL)
     }
 }
 

@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct ImportFileView: View {
+    @State private var pickFile: Bool = false
+    @State private var fileURL: URL?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+        Button("Pick file"){
+            pickFile.toggle()
+        }
+        .fileImporter(isPresented: $pickFile, allowedContentTypes: [.pdf,.mp3,.heic]) { result in
+            
+            switch result {
+            case .success(let success):
+                // - File URL
+                fileURL = success.absoluteURL
+               
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
     }
 }
 

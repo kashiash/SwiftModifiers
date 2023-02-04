@@ -10,16 +10,27 @@ import UniformTypeIdentifiers
 
 struct ExportFileView: View {
     @State private var exportAssetImage: Bool = false
+    @State private var exportImage: PNGDocument?
+    
     var body: some View {
-        Button("Export image file"){
+     
+        
+        Button("Export documents") {
             exportAssetImage.toggle()
         }
-        .fileExporter(isPresented: $exportAssetImage, documents: <#T##Collection#>, contentType: <#T##UTType#>, onCompletion: <#T##(Result<[URL], Error>) -> Void##(Result<[URL], Error>) -> Void##(_ result: Result<[URL], Error>) -> Void#>)
-        
+        .fileExporter(isPresented: $exportAssetImage, document: exportImage, contentType: .plainText) { result in
+            switch result {
+                case .failure(let error):
+                    print("Error \(error.localizedDescription)")
+                case .success(let file):
+                print("Saved \(file) succesfully")
+            }
+        }
+    
     }
     
     /// - Creating document file
-    ///  - wersion iOS and macOs
+    ///  - version iOS and macOs
     #if os(iOS)
     typealias FileImage = UIImage
     #else
@@ -30,6 +41,21 @@ struct ExportFileView: View {
         
         init(image: FileImage){
             self.image = image
+        }
+        static var readableContentTypes: [UTType] {[.png]}
+        
+        init(configuration: ReadConfiguration) throws {
+            guard let pngData = configuration.file.regularFileContents, let pngImage = FileImage(data: pngData) else {
+                throw CocoaError(.fileReadUnknown)
+            }
+            image = pngImage
+        }
+        
+        func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+            guard let pngData = image.pngData() else {
+                return .init()
+            }
+            return .init(regularFileWithContents: pngData)
         }
     }
 }

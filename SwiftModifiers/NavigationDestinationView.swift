@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct NavigationDestinationView: View {
+    @Environment(\.requestReview) var requestReview
+    
     @ State private var pushNewViewX = false
     var body: some View {
         NavigationStack{
@@ -15,8 +18,9 @@ struct NavigationDestinationView: View {
                 pushNewViewX.toggle()
             }
             .navigationDestination(isPresented: $pushNewViewX){
-                Text("New View")
-                Text("After new View")
+                Button("Request Review"){
+                    requestReview()
+                }
             }
         }
     }

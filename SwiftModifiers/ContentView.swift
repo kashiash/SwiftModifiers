@@ -37,7 +37,7 @@ struct ContentView: View {
                 pushExportFileView.toggle()
             }
             .navigationDestination(isPresented: $pushExportFileView){
-               ImportFileView()
+               ExportFileView()
             }
         }
     }

@@ -16,9 +16,13 @@ struct ExportFileView: View {
      
         
         Button("Export documents") {
-            exportAssetImage.toggle()
-        }
-        .fileExporter(isPresented: $exportAssetImage, document: exportImage, contentType: .plainText) { result in
+            if let image = FileImage(named: "LordVader"){
+                exportImage = PNGDocument(image: image)
+                exportAssetImage.toggle()
+
+            }
+                    }
+        .fileExporter(isPresented: $exportAssetImage, document: exportImage, contentType: .png) { result in
             switch result {
                 case .failure(let error):
                     print("Error \(error.localizedDescription)")
@@ -52,9 +56,15 @@ struct ExportFileView: View {
         }
         
         func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+            #if os(iOS)
             guard let pngData = image.pngData() else {
                 return .init()
             }
+            #else
+            guard let pngData = image.tiffRepresentation else {
+                return .init()
+            }
+            #endif
             return .init(regularFileWithContents: pngData)
         }
     }
